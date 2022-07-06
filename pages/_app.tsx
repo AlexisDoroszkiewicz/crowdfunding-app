@@ -10,8 +10,36 @@ import {
 	Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { initializeApp } from "firebase/app";
+
+import { firebaseConfig } from "../firebase.config";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
+	// const firebaseConfig = {
+	// 	apiKey: "AIzaSyCCYTB2w7S6dh5w91TFVb6JMQBah2aLJlI",
+	// 	authDomain: "crowdfunding-app-4f407.firebaseapp.com",
+	// 	projectId: "crowdfunding-app-4f407",
+	// 	storageBucket: "crowdfunding-app-4f407.appspot.com",
+	// 	messagingSenderId: "651487973051",
+	// 	appId: "1:651487973051:web:a4b9222bb7ab1bb599639e",
+	// 	measurementId: "G-C8274EJMVH"
+	// };
+	
+	  
+	// Initialize Firebase
+	console.log(firebaseConfig)
+	  
+	// const app = initializeApp(firebaseConfig);
+	// console.log(app)
+	  
+	// const auth = getAuth(app);
+	// const provider = new GoogleAuthProvider();
+
+	const signIn = async () => {
+		// googlePopUpSignIn()
+	}
 	return (
 		<>
 			<Head>
@@ -39,7 +67,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 							sx={{ flexGrow: 1 }}>
 							Crowdfunding App
 						</Typography>
-						<Button color="inherit">Login</Button>
+						<Button color="inherit" onClick={signIn}>Login</Button>
 					</Toolbar>
 				</Container>
 			</AppBar>
