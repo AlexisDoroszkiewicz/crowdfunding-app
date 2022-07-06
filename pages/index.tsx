@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import { Button } from "@mui/material";
+import { Container } from "@mui/material";
 
 const Home: NextPage = () => {
 	return (
-		<div>
+		<Container maxWidth="lg">
 			<h1>hello</h1>
-		</div>
+		</Container>
 	);
 };
 
