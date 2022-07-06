@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 							variant="h6"
 							component="div"
 							sx={{ flexGrow: 1 }}>
-							News
+							Crowdfunding App
 						</Typography>
 						<Button color="inherit">Login</Button>
 					</Toolbar>
