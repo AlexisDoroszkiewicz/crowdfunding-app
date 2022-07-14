@@ -19,6 +19,7 @@ export const firebaseConfig = {
 
 // export const googlePopUpSignIn = async () => {
 //   try {
+// things to commit
 //     const provider = new GoogleAuthProvider();
 //     result = await signInWithPopup(auth, provider);
 //     console.log(result);
