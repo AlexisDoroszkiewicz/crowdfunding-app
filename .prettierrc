@@ -1,0 +1,7 @@
+{
+    "prettier.trailingComma": "es5",
+    "tabWidth": 4,
+    "prettier.useTabs": true,
+    "prettier.requireConfig": true,
+    "prettier.semi": true
+}
