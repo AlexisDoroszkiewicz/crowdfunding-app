@@ -6,18 +6,23 @@ import { useState } from "react";
 
 const Home: NextPage = () => {
     const auth = getAuth(firebaseApp);
-    const [name, setName] = useState(auth.currentUser?.displayName);
+    const [isLoggedIn, setIsLoggedIn] = useState(auth.currentUser !== null);
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            setName(user.displayName);
+            setIsLoggedIn(true);
         } else {
-            setName("");
+            setIsLoggedIn(false);
         }
     });
+
     return (
         <Container maxWidth="lg">
-            <h1>hello {name}</h1>
+            <h1>
+                {isLoggedIn
+                    ? "Hello " + auth.currentUser?.displayName
+                    : "Hello"}
+            </h1>
         </Container>
     );
 };
