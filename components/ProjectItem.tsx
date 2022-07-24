@@ -11,12 +11,8 @@ export interface Project {
     isClosed: boolean;
 }
 
-// interface Props {
-//     project: Project;
-// }
-
 const ProjectItem = (props: Project) => {
-    return <li>{props.title}</li>;
+    return <li key={props.id}>{props.title}</li>;
 };
 
 export default ProjectItem;
