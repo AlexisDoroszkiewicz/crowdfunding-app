@@ -1,11 +1,12 @@
-import ProjectItem, { Project } from "./ProjectItem";
+import ProjectCard from "./ProjectCard";
+import Project from "@classes/Project";
 
 interface Props {
     projects: Project[];
 }
 
 const ProjectList = (props: Props) => {
-    return <ul>{props.projects.map((project) => ProjectItem(project))}</ul>;
+    return <div>{props.projects.map((project) => ProjectCard(project))}</div>;
 };
 
 export default ProjectList;

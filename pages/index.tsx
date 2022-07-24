@@ -4,14 +4,16 @@ import { firebaseApp } from "firebase.config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 import ProjectList from "@components/ProjectList";
+import Project from "@classes/Project";
 
-const tempProjectList = [
+const tempProjectList: Project[] = [
     {
         id: "2DjnIuE7q0UCpOwmSR6q",
         createdAt: new Date(),
+        description: "Blahblahblah",
         isClosed: false,
         likes: 98,
-        owner: "wJSLzZ25cIPL3tyfrHMfPrD4h002",
+        ownerId: "wJSLzZ25cIPL3tyfrHMfPrD4h002",
         reachedAmount: 300,
         requiredAmount: 40000,
         title: "The first project",
@@ -19,9 +21,10 @@ const tempProjectList = [
     {
         id: "2DjnIuE7q0UCpOwmSR6w",
         createdAt: new Date(),
+        description: "Tototototototototo",
         isClosed: false,
         likes: 98,
-        owner: "wJSLzZ25cIPL3tyfrHMfPrD4h002",
+        ownerId: "wJSLzZ25cIPL3tyfrHMfPrD4h002",
         reachedAmount: 300,
         requiredAmount: 40000,
         title: "The second project",
