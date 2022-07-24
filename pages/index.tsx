@@ -4,9 +4,8 @@ import { firebaseApp } from "firebase.config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 import ProjectList from "@components/ProjectList";
-import Project from "@classes/Project";
 
-const tempProjectList: Project[] = [
+const tempProjectList = [
     {
         id: "2DjnIuE7q0UCpOwmSR6q",
         createdAt: new Date(),

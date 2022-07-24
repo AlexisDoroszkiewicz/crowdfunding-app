@@ -1,7 +1,10 @@
-import React from "react";
-import Project from "@classes/Project";
+interface Props {
+    id: string;
+    title: string;
+    description: string;
+}
 
-const ProjectCard = (props: Project) => {
+const ProjectCard = (props: Props) => {
     return (
         <div key={props.id}>
             <h1>{props.title}</h1>

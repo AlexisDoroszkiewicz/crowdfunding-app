@@ -1,6 +1,10 @@
 import ProjectCard from "./ProjectCard";
-import Project from "@classes/Project";
 
+interface Project {
+    id: string;
+    title: string;
+    description: string;
+}
 interface Props {
     projects: Project[];
 }
