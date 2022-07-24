@@ -49,7 +49,11 @@ const Home: NextPage = () => {
                     ? "Hello " + auth.currentUser?.displayName
                     : "Hello"}
             </h1>
-            <div>{tempProjectList.map((project) => ProjectCard(project))}</div>
+            <div>
+                {tempProjectList.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                ))}
+            </div>
         </Container>
     );
 };
