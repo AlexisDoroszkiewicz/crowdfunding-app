@@ -1,8 +1,4 @@
-interface Project {
-    id: string;
-    title: string;
-    description: string;
-}
+import { Project } from "@classes/Project";
 
 const ProjectCard = ({ id, title, description }: Project) => {
     return (

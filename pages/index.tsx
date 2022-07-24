@@ -1,11 +1,13 @@
+import { useState } from "react";
 import type { NextPage } from "next";
 import { Container } from "@mui/material";
 import { firebaseApp } from "firebase.config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useState } from "react";
+import { getFirestore, collection, doc, getDocs } from "firebase/firestore";
 import ProjectCard from "@components/ProjectCard";
+import { Project } from "@classes/Project";
 
-const tempProjectList = [
+const tempProjectList: Project[] = [
     {
         id: "2DjnIuE7q0UCpOwmSR6q",
         createdAt: new Date(),
@@ -30,6 +32,8 @@ const tempProjectList = [
     },
 ];
 
+const db = getFirestore(firebaseApp);
+
 const Home: NextPage = () => {
     const auth = getAuth(firebaseApp);
     const [isLoggedIn, setIsLoggedIn] = useState(auth.currentUser !== null);
@@ -41,6 +45,14 @@ const Home: NextPage = () => {
             setIsLoggedIn(false);
         }
     });
+
+    async function blah() {
+        const querySnapshot = await getDocs(collection(db, "projects"));
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data().title}`);
+        });
+    }
+    blah();
 
     return (
         <Container maxWidth="lg">
