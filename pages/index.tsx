@@ -3,7 +3,7 @@ import { Container } from "@mui/material";
 import { firebaseApp } from "firebase.config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
-import ProjectList from "@components/ProjectList";
+import ProjectCard from "@components/ProjectCard";
 
 const tempProjectList = [
     {
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
                     ? "Hello " + auth.currentUser?.displayName
                     : "Hello"}
             </h1>
-            <ProjectList projects={tempProjectList} />
+            <div>{tempProjectList.map((project) => ProjectCard(project))}</div>
         </Container>
     );
 };
