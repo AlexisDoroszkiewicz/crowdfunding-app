@@ -51,7 +51,7 @@ const Home: NextPage = () => {
             </h1>
             <div>
                 {tempProjectList.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
+                    <ProjectCard key={project.id} {...project} />
                 ))}
             </div>
         </Container>

@@ -1,16 +1,14 @@
 interface Project {
-    project: {
-        id: string;
-        title: string;
-        description: string;
-    };
+    id: string;
+    title: string;
+    description: string;
 }
 
-const ProjectCard = ({ project }: Project) => {
+const ProjectCard = ({ id, title, description }: Project) => {
     return (
-        <div key={project.id}>
-            <h1>{project.title}</h1>
-            <h2>{project.description}</h2>
+        <div key={id}>
+            <h1>{title}</h1>
+            <h2>{description}</h2>
         </div>
     );
 };
