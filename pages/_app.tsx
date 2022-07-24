@@ -1,7 +1,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Nav from "../components/Nav";
+import Nav from "@components/Nav";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
