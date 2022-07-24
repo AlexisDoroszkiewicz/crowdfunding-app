@@ -40,7 +40,6 @@ export default function Nav({}: Props) {
     };
 
     const logOut = () => {
-        console.log(auth.currentUser);
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
