@@ -33,7 +33,6 @@ const tempProjectList: Project[] = [
 ];
 
 const db = getFirestore(firebaseApp);
-console.log(db);
 
 const Home: NextPage = () => {
     const auth = getAuth(firebaseApp);
@@ -50,7 +49,7 @@ const Home: NextPage = () => {
     async function blah() {
         const querySnapshot = await getDocs(collection(db, "projects"));
         querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
+            console.log(`${doc.id} => ${doc.data().title}`);
         });
     }
     blah();
