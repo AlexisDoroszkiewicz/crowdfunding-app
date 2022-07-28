@@ -1,6 +1,10 @@
-import { QueryDocumentSnapshot } from "firebase/firestore";
+import {
+    FirestoreDataConverter,
+    QueryDocumentSnapshot,
+    SnapshotOptions,
+} from "firebase/firestore";
 
-export class Project {
+export interface Project {
     id: string;
     title: string;
     description: string;
@@ -10,32 +14,10 @@ export class Project {
     requiredAmount: number;
     reachedAmount: number;
     isClosed: boolean;
-
-    constructor(
-        id: string,
-        title: string,
-        description: string,
-        createdAt: Date,
-        ownerId: string,
-        likes: number,
-        requiredAmount: number,
-        reachedAmount: number,
-        isClosed: boolean
-    ) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.createdAt = createdAt;
-        this.ownerId = ownerId;
-        this.likes = likes;
-        this.requiredAmount = requiredAmount;
-        this.reachedAmount = reachedAmount;
-        this.isClosed = isClosed;
-    }
 }
 
 // Firestore data converter
-export const projectConverter = {
+export const projectConverter: FirestoreDataConverter<Project> = {
     toFirestore: (project: Project) => {
         return {
             id: project.id,
@@ -49,18 +31,23 @@ export const projectConverter = {
             isClosed: project.isClosed,
         };
     },
-    fromFirestore: (snapshot: QueryDocumentSnapshot, options: any) => {
+    fromFirestore: (
+        snapshot: QueryDocumentSnapshot,
+        options: SnapshotOptions
+    ) => {
         const data = snapshot.data(options);
-        return new Project(
-            data.id,
-            data.title,
-            data.description,
-            data.createdAt,
-            data.ownerId,
-            data.likes,
-            data.requiredAmount,
-            data.reachedAmount,
-            data.isClosed
-        );
+        const proj: Project = {
+            id: snapshot.id,
+            title: data.title,
+            description: data.description,
+            createdAt: data.createdAt,
+            ownerId: data.ownerId,
+            likes: data.likes,
+            requiredAmount: data.requiredAmount,
+            reachedAmount: data.reachedAmount,
+            isClosed: data.isClosed,
+        };
+
+        return proj;
     },
 };
